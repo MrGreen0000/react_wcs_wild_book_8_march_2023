@@ -1,18 +1,22 @@
-import wildersData from '../wildersData.js';
-import WilderCard from './WilderCard.js';
-import './WildersGrid.css'
+import './WildersGrid.css';
+import WilderCard from './WilderCard';
 
-export default function WildersGrid() {
+
+export default function WildersGrid({ wilders, fetchData }) {
+
+
+
     return (
         <main className="container">
             <h2>Wilders</h2>
             <section className="card-row">
-                {wildersData.map((wilder, index) => (
+                {wilders.map((wilder, index) => (
                     <WilderCard
                         key={index}
+                        id={wilder.id}
                         name={wilder.name}
-                        city={wilder.city}
                         skills={wilder.skills}
+                        fetchData={fetchData}
                     />
                 ))}
             </section>
